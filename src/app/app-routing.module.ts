@@ -12,8 +12,8 @@ const routes: Routes = [
   {path:'balance', component: BalanceComponent},
   {path:'deposit', component:DepositComponent,
   children:[
-    {path:'coins', component: DepositCoinsComponent},
-    {path:'notes', component: DepositNotesComponent},
+    {path:'coins', loadChildren:()=>import('./deposit-coins/deposit-coins.component').then(mod=>mod.DepositCoinsComponent)},
+    {path:'notes', loadChildren:()=>import('./deposit-notes/deposit-notes.component').then(mod=>mod.DepositNotesComponent)},
   ]  
 
  },
